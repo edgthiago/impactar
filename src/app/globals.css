@@ -1,26 +1,126 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Variáveis de cores personalizadas */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cor-primaria: #22c55e;
+  --cor-primaria-hover: #16a34a;
+  --cor-primaria-escura: #15803d;
+  --cor-fundo: #000000;
+  --cor-fundo-secundario: #111827;
+  --cor-texto: #ffffff;
+  --cor-texto-secundario: #9ca3af;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Estilos base */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+/* Animações customizadas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animacao-fade-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animacao-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradientes personalizados */
+.gradiente-verde {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+}
+
+.gradiente-texto-verde {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sombras personalizadas */
+.sombra-verde {
+  box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.2), 0 4px 6px -2px rgba(34, 197, 94, 0.1);
+}
+
+.sombra-verde-hover {
+  box-shadow: 0 20px 40px -5px rgba(34, 197, 94, 0.3), 0 8px 12px -2px rgba(34, 197, 94, 0.2);
+}
+
+/* Cabeçalho fixo com backdrop blur */
+.cabecalho-fixo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  border-bottom: 1px solid rgb(31 41 55);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Media queries para animações */
+@media (prefers-reduced-motion: reduce) {
+  .animacao-fade-up,
+  .animacao-pulse {
+    animation: none;
+  }
+  
+  .hover\:transform:hover,
+  .hover\:scale-105:hover,
+  .hover\:-translate-y-1:hover {
+    transform: none;
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #16a34a;
+}
+
+/* Seleção de texto personalizada */
+::selection {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: white;
 }

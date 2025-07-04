@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Evitar arquivos duplicados
+*-backup.*
+*-copy.*
+*-old.*
+*.backup
+*.copy
+*.old
+*_backup.*
+*_copy.*
+*_old.*
+
+# Arquivos temporários do editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~

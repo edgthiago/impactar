@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://impactar-treinamentos.vercel.app/sitemap.xml
+
+# Otimizações para crawlers
+Crawl-delay: 1
+
+# Bloquear arquivos sensíveis
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Permitir arquivos importantes
+Allow: /api/og
+Allow: /_next/static/
